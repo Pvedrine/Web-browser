@@ -16,3 +16,6 @@ C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Deb
 C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Webbroser.Form1.resources
 C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Webbroser.Properties.Resources.resources
 C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Webbroser.csproj.GenerateResource.Cache
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Decl\Webbroser.exe
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Decl\Webbroser.pdb
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\CodeContractAnalysisRun.log
