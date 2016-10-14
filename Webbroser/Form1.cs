@@ -37,12 +37,13 @@ namespace Webbroser
             {
                 if (!s.Equals(""))
                 {
+
                     Url[index] = new Uri(s);
                     //We get the Http text from the URL
-                    textBox2.Text = Encoding.UTF8.GetString(Encoding.Default.GetBytes((new WebClient().DownloadString(Url[index]))));
-                    textBox1.Text = Url[index].ToString();
+                    textBox2.Text = Encoding.UTF8.GetString(Encoding.Default.GetBytes((new WebClient().DownloadString(s))));
+                    textBox1.Text = s;
                     //We add the URL onto the history
-                  //  History(Url[index].ToString());
+                     History(s);
                     index++;
                     if (index == 20)
                     {
@@ -76,8 +77,8 @@ namespace Webbroser
                    }
                
             }
-        
-            
+   
+
         }
         //Previous function 
         public void Previous()
@@ -209,13 +210,6 @@ namespace Webbroser
         }
 
      
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                GetPage(textBox1.Text);
-            }
-        }
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -270,6 +264,15 @@ namespace Webbroser
         private void button1_Click(object sender, EventArgs e)
         {
             GetPage(textBox1.Text);
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetPage(textBox1.Text);
+
+            }
         }
 
 

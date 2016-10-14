@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setAsFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setAsHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -221,9 +222,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Web Bowser";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -243,7 +245,6 @@
         private System.Windows.Forms.ToolStripMenuItem setAsHomeToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.ToolStripMenuItem changeColourToolStripMenuItem;
@@ -252,6 +253,7 @@
         private System.Windows.Forms.ToolStripMenuItem pinkToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem blueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
