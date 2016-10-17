@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,14 +24,16 @@ namespace Webbroser
          * multi thread pour avoir plusieurs pages
          * COMMENTER
          */
-        Uri[] Url = new Uri[20];
+        public static Uri[] Url = new Uri[20];
         int index = 0;
         int fav = 0;
-        ToolStripMenuItem[] history = new ToolStripMenuItem[50];
+        static ToolStripMenuItem[] history = new ToolStripMenuItem[50];
         // List<ToolStripMenuItem> history = new List<ToolStripMenuItem>();
         ToolStripMenuItem[] favorites = new ToolStripMenuItem[50];
         string FileFavorites = @"C:\Users\Public\TestFolder\Favorites.txt";
         string FileHistory = @"C:\Users\Public\TestFolder\History.txt";
+
+    
 
         public void GetPage(string s)
         {
@@ -102,21 +106,22 @@ namespace Webbroser
 
         public void History(string s)
         {
-            if (Url[index] != null )
-                {
-                    history[index] = new ToolStripMenuItem();
-                    history[index].Text =  s;
-                   // history[index].Name = Url[index].ToString();
-                    // history[index].ToolTipText = Url[index].ToString();
-                    history[index].Click += new EventHandler(History_click);
-                   if (index == 0 || history[index] != null)
+            if (Url[index] != null)
+            {
+                history[index] = new ToolStripMenuItem();
+                history[index].Text = s;
+                // history[index].Name = Url[index].ToString();
+                // history[index].ToolTipText = Url[index].ToString();
+                history[index].Click += new EventHandler(History_click);
+                if (index == 0 || history[index] != null)
                     historyToolStripMenuItem.DropDownItems.Add(history[index]);
             }
-               
 
-            }
-            
-           public void SetToFavorites(string s)
+
+        }
+
+
+        public void SetToFavorites(string s)
         {
             if (s != null && !checkfav(s))
             {
@@ -153,7 +158,7 @@ namespace Webbroser
             string line;
             if (File.Exists(file))
             {
-                System.IO.StreamReader filetmp = new System.IO.StreamReader(file);
+                StreamReader filetmp = new StreamReader(file);
 
                 if (file == FileHistory)
                 {
@@ -180,16 +185,16 @@ namespace Webbroser
 
         public void WriteFile(string file, ToolStripMenuItem[] tab)
         {
-            if (File.Exists(file))
-            {
+            Contract.Requires(File.Exists(file));
+            
                 for (int i = 0; i < tab.Length; i++)
                 {
                     if (tab[i] != null)
                     {
-                        System.IO.File.WriteAllText(file, tab[i].Text);
+                        File.WriteAllText(file, tab[i].Text);
                     }
                 }
-            }
+            
         }
 
         private void Favorites_Click (object sender, EventArgs e)
@@ -270,11 +275,12 @@ namespace Webbroser
         {
             if (e.KeyCode == Keys.Enter)
             {
-                GetPage(textBox1.Text);
+               
+              GetPage(textBox1.Text);
 
             }
         }
-
+      
 
         private void ColourMode(System.Drawing.Color fore, System.Drawing.Color back)
         {
@@ -296,9 +302,7 @@ namespace Webbroser
         }
 
 
-
-
-
+   
 
 
 
@@ -409,6 +413,18 @@ namespace Webbroser
         {
             ColourMode(System.Drawing.Color.Blue, System.Drawing.Color.Red);
 
+        }
+
+        private void newWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread newWindow = new Thread(delegate ()
+            {
+                Form1 newform = new Form1();
+                newform.Show();
+                
+            });
+            newWindow.SetApartmentState(ApartmentState.MTA);
+            newWindow.Start();
         }
     }
 }
