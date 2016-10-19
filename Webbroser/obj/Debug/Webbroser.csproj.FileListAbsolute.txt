@@ -19,3 +19,7 @@ C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Deb
 C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Decl\Webbroser.exe
 C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Decl\Webbroser.pdb
 C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\CodeContractAnalysisRun.log
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\bin\Debug\Webbroser.exe.manifest
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\bin\Debug\Webbroser.application
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Webbroser.exe.manifest
+C:\Users\zehir\Documents\Visual Studio 2015\Projects\Webbroser\Webbroser\obj\Debug\Webbroser.application
