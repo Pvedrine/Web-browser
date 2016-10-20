@@ -28,9 +28,9 @@ namespace Webbroser
         //favourites array
         ToolStripMenuItem[] favorites = new ToolStripMenuItem[50];
         //file to save the favourites
-        string FileFavorites = @"Favorites.txt";
+        string FileFavorites = @"C:\User\Favorites.txt";
         //file to save the history
-        string FileHistory = @"History.txt";
+        string FileHistory = @"C:\User\History.txt";
 
 
         //methods that gives the HTML code from an URL
@@ -81,7 +81,7 @@ namespace Webbroser
 
             }
 
-
+            
         }
       
       
@@ -179,6 +179,7 @@ namespace Webbroser
             //if the favorites files doesn't exist, we create it
             else
             {
+               
                 File.Create(file);
             }
         }
@@ -186,12 +187,12 @@ namespace Webbroser
         //simple methods to write the content of an array in a file
         public void WriteFile(string file, ToolStripMenuItem[] tab)
         {
-            if (File.ReadAllText(file) != null)
-
-                for (int i = 0; i < tab.Length; i++)
+          
+            for (int i = 0; i < tab.Length; i++)
                 {
                     if (tab[i] != null)
                     {
+                        
                         File.AppendAllText(file, tab[i].Text + "\n");
                     }
                 }
@@ -349,16 +350,19 @@ namespace Webbroser
         {
             Thread clearhistory = new Thread(delegate ()
             {
+                
                 File.Delete(FileHistory);
                 //reseting the array
                 for (int i = 0; i < histo; i++)
                 {
                     history[i] = null;
-                    historyToolStripMenuItem.DropDownItems.Remove(history[i]);
+                    historyToolStripMenuItem.DropDownItems.Remove(historyToolStripMenuItem.DropDownItems[i]);
                 }
+                
+                
                 histo = 0;
+                
                 Get_Fav(FileHistory);
-
             });
         }
         //CLearing Favourites
